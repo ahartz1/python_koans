@@ -40,10 +40,7 @@ class Proxy:
         if attrname in ['_messages', '_obj']:
             object.__setattr__(self, attrname, value)
         else:
-            try:
-                object.__setattr__(self._obj, attrname, value)
-            except:
-                raise AttributeError
+            object.__setattr__(self._obj, attrname, value)
             self._messages.append(attrname)
 
     def messages(self):
